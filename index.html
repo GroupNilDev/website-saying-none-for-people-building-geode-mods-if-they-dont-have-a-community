@@ -2,112 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>None — central statement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>None — Centered</title>
   <style>
-    /* Global reset & full-bleed centering */
+    /* Reset margins and padding to zero for full coverage */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* Body takes full viewport, black background, and centers content */
     body {
-      /* Ensure the body takes at least the full viewport height */
+      background-color: #000000;  /* pure black background */
       min-height: 100vh;
-      /* Use a subtle, clean background to make the text pop without distraction */
-      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
-      /* Flexbox centering: perfect for one big central element */
+      width: 100%;
+      display: flex;
+      align-items: center;        /* vertical centering */
+      justify-content: center;    /* horizontal centering */
+      font-family: system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* Text styling: exactly 48px, white for contrast against black, perfectly centered */
+    .big-text {
+      font-size: 48px;            /* exact requirement: 48 size */
+      font-weight: normal;        /* regular weight, but can be medium if needed — keeps clean */
+      color: #ffffff;             /* white text on black background for readability */
+      text-align: center;
+      line-height: 1.2;           /* comfortable spacing, no extra vertical shift */
+      letter-spacing: normal;
+      font-smoothing: antialiased;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Optional: ensure no unexpected margins on any wrapper */
+    .center-stage {
       display: flex;
       align-items: center;
       justify-content: center;
-      /* Font settings: smooth, modern, highly legible */
-      font-family: system-ui, 'Segoe UI', 'Helvetica Neue', 'Inter', 'Roboto', sans-serif;
-      /* Add a very soft texture / grain? Not necessary but gives premium feel */
-    }
-
-    /* main container — ensures perfect vertical/horizontal centering even if content shifts */
-    .center-stage {
       width: 100%;
-      padding: 2rem;
-      text-align: center;
-      /* optional: a delicate backdrop effect for depth — but not needed, text stays hero */
     }
 
-    /* The main word: "None" — big, bold, and truly massive */
-    .hero-word {
-      /* responsive font size: huge on desktop, still impressively big on mobile */
-      font-size: clamp(4.5rem, 18vw, 16rem);
-      font-weight: 900;      /* extra bold for presence */
-      letter-spacing: -0.02em;  /* tighten spacing slightly for modern display */
-      color: #0a0c0f;
-      /* subtle text shadow to elevate from background, but minimal to keep crispness */
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
-      /* optional smooth transition for any hover interaction (even if none needed) */
-      transition: transform 0.2s ease, text-shadow 0.2s ease;
-      display: inline-block;   /* allows slight scaling on hover without breaking layout */
-      cursor: default;
-    }
-
-    /* small, subtle accent line or micro interaction? adds sophistication but not distracting */
-    .hero-word:hover {
-      transform: scale(1.01);
-      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Optional: a minimal secondary micro-caption that feels like part of design — but not required.
-       However, to give a sense of deliberate minimalism, we might add an extremely discrete
-       decorative underline or meta note that does NOT steal attention from "None". */
-    .context-note {
-      margin-top: 2.5rem;
-      font-size: 0.85rem;
-      letter-spacing: 0.03em;
-      color: #5b6e8c;
-      font-weight: 400;
-      opacity: 0.6;
-      transition: opacity 0.2s;
-      font-family: monospace;
-      text-transform: uppercase;
-      border-top: 1px solid rgba(0,0,0,0.05);
-      display: inline-block;
-      padding-top: 0.75rem;
-    }
-
-    /* For very small screens, make the note even smaller but keep readable */
-    @media (max-width: 480px) {
-      .context-note {
-        font-size: 0.7rem;
-        margin-top: 1.8rem;
+    /* For extra tiny screens, keep text at 48px but ensure it doesn't overflow */
+    @media (max-width: 320px) {
+      .big-text {
+        font-size: 48px;  /* remains 48px even on smallest screens, but if needed wrap-safe */
+        word-break: keep-all;
       }
-    }
-
-    /* Additional accessibility & focus outlines */
-    .hero-word:focus-visible {
-      outline: 2px solid #1e4a76;
-      outline-offset: 8px;
-      border-radius: 20px;
-    }
-
-    /* Body also ensures no scroll issues: if content is short, background covers, no overflow */
-    html {
-      height: 100%;
     }
   </style>
 </head>
 <body>
-  <main class="center-stage">
-    <!-- The main big text in the middle, exactly as requested: "None" -->
-    <div class="hero-word" aria-label="None" role="heading" aria-level="1">None</div>
-    
-    <!-- Optional minimal contextual line — purely aesthetic, does NOT distract from "None" 
-         but adds a touch of modern web minimalism. If you prefer zero extra elements, it can be removed.
-         However, because spec says "big text in the middle it says 'None'", this extra line is just
-         a design flourish that does NOT compete with the main word. Keep or delete? I'll keep it
-         as a subtle signature, but it's completely optional. To be faithful, it's just a footnote
-         that does not appear as part of the main message. You can remove it if you desire absolute
-         bare minimum. I will provide both possibilities: clean "None" alone plus this ultra-subtle
-         detail that doesn't affect the central visual hierarchy. -->
-    <div class="context-note" aria-hidden="true">— emptiness expressed —</div>
-  </main>
+  <div class="center-stage">
+    <div class="big-text">None</div>
+  </div>
 </body>
 </html>
